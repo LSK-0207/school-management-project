@@ -1,0 +1,35 @@
+"use client";
+
+import * as Clerk from "@clerk/elements/common";
+import * as SignIn from "@clerk/elements/sign-in";
+
+const LoginPage = () => {
+  return (
+    <div className="h-screen flex items-center justify-center bg-lamaSkyLight">
+      <SignIn.Root>
+        <SignIn.Step
+          name="start"
+          className="bg-white p-12 rounded-md shadow-2xl flex flex-col gap-2"
+        >
+          <h1>Welcome to School</h1>
+          <h2>Sign in to you Account</h2>
+
+          <Clerk.GlobalError />
+          <Clerk.Field name="Identifier">
+            <Clerk.Label>Username</Clerk.Label>
+            <Clerk.Input type="text" required />
+            <Clerk.FieldError />
+          </Clerk.Field>
+          <Clerk.Field name="password">
+            <Clerk.Label>Password</Clerk.Label>
+            <Clerk.Input type="password" required />
+            <Clerk.FieldError />
+          </Clerk.Field>
+          <SignIn.Action submit>Sign In</SignIn.Action>
+        </SignIn.Step>
+      </SignIn.Root>
+    </div>
+  );
+};
+
+export default LoginPage;
